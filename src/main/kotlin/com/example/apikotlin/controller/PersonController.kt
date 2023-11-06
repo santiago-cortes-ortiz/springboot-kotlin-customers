@@ -28,9 +28,9 @@ class PersonController(val personService: PersonService) {
         return ResponseEntity(HttpStatusCode.valueOf(201))
     }
 
-    @DeleteMapping
+    @DeleteMapping(consumes = ["application/json"])
     fun removePerson(@RequestBody person: Person): ResponseEntity<String> {
-        var res = personService.remove(person)
+        val res = personService.remove(person)
         if (res) {
             return ResponseEntity(HttpStatusCode.valueOf(202))
         }

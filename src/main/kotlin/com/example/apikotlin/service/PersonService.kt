@@ -25,12 +25,14 @@ class PersonService {
     }
 
     fun remove(person: Person): Boolean {
-        notFound(people)
+        if (!people.contains(person)) {
+            throw PersonException("Person not found")
+        }
         return people.remove(person)
     }
 
     fun getGreaterThan(age: Int): List<Person> {
-       notFound(people)
+        notFound(people)
         return people.filter { it.age > age }
     }
 
