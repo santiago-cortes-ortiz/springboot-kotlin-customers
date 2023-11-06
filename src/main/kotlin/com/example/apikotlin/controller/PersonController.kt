@@ -39,11 +39,11 @@ class PersonController(val personService: PersonService) {
 
     @GetMapping("greater-than/{age}")
     fun getPersonGreaterThan(@PathVariable age: Int): ResponseEntity<List<Person>> {
-        var res = personService.getGreaterThan(age)
+        val res = personService.getGreaterThan(age)
         if (res.isEmpty()){
             return ResponseEntity(HttpStatusCode.valueOf(404))
         }
-        return ResponseEntity(res,HttpStatusCode.valueOf(300))
+        return ResponseEntity(res,HttpStatusCode.valueOf(200))
     }
 
 }
