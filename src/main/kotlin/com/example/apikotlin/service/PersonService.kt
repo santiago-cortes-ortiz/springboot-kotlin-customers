@@ -21,6 +21,7 @@ class PersonService {
     }
 
     fun add(person: Person) {
+        person.age = person.birthdate.until(LocalDate.now()).years
         people.add(person)
     }
 
